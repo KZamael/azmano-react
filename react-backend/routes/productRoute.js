@@ -4,12 +4,21 @@ import { isAuth, isAdmin, getToken } from '../util';
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   const products = await Product.find({});
   res.send(products);
 });
 
-router.put("/:id", async(req, res) => {
+router.get('/:id', async (req, res) => {
+  const product = await Product.findOne({_id: req.params.id});
+  if(product) {
+    res.send(product);
+  } else {
+    res.status(404).send({message: 'Product Not Found!'})
+  }
+});
+
+router.put('/:id', isAuth, isAdmin, async(req, res) => {
   const productId = req.params.id;
   const product = await Product.findById(productId);
   if(product) {
@@ -23,19 +32,21 @@ router.put("/:id", async(req, res) => {
 
     const updatedProduct = await product.save();
     if(updatedProduct) {
-      return res.status(200).send({message: 'Product Updated.', data: updatedProduct });
+      return res
+        .status(200)
+        .send({message: 'Product Updated.', data: updatedProduct });
     }
     return res.status(500).send({message: 'Error in Updating Product.'});
   }
 });
 
-router.delete("/:id", isAuth, isAdmin, async(req,res) => {
+router.delete('/:id', isAuth, isAdmin, async(req,res) => {
   const deletedProduct = await Product.findById(req.params.id);
   if(deletedProduct) {
     await deletedProduct.remove();
-    res.send({message: "Product Deleted"});
+    res.send({message: 'Product Deleted' });
   } else {
-    res.send("Error in Deletion.");
+    res.send('Error in Deletion.');
   }
 });
 

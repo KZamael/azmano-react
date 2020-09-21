@@ -194,7 +194,7 @@ function ProductsScreen(props) {
           <tbody>
             {products.map((product) => (
               <tr key={product._id}>
-                <td>{product.id}</td>
+                <td>{product._id}</td>
                 <td>{product.name}</td>
                 <td>{product.price}</td>
                 <td>{product.category}</td>

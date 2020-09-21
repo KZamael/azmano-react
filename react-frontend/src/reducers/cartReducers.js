@@ -9,9 +9,8 @@ function cartReducer(state = { cartItems: [] }, action) {
         // If x.product === product.product, then item is the new value for qty.
         // ...state spread operator, used for the previous state.
         return {
-          cartItems: state.cartItems.map((x) =>
-            x.product === product.product ? item : x
-          ),
+          cartItems: 
+            state.cartItems.map((x) => x.product === product.product ? item : x),
         };
       }
       return { cartItems: [...state.cartItems, item] };
