@@ -25,7 +25,7 @@ function HomeScreen (props){
     {
         /** Returns callback function on each element of the product array. */
         products.map(product =>
-        <li key={product.id}>
+        <li key={product._id}>
             <div className="product">
                 <Link to={'/product/' + product.id}>
                     <img className="product-image" src={product.image} alt="product" />
