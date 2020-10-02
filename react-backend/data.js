@@ -1,7 +1,7 @@
 export default {
     products: [
         {
-            id: '0',
+            _id: '0',
             name: 'Slim Shirt',
             category: 'Shirts',
             image: '/images/d1.jpg',
@@ -12,7 +12,7 @@ export default {
             countInStock: 0,
         },
         {
-            id: '1',
+            _id: '1',
             name: 'Fit Shirt',
             category: 'Shirts',
             image: '/images/d1.jpg',
@@ -23,7 +23,7 @@ export default {
             countInStock: 7,
         },
         {
-            id: '2',
+            _id: '2',
             name: 'Hot Pants',
             category: 'Pants',
             image: '/images/d1.jpg',
@@ -34,7 +34,7 @@ export default {
             countInStock: 5,
         },
         {
-            id: '3',
+            _id: '3',
             name: 'Ladies Best',
             category: 'Skirt',
             image: '/images/d1.jpg',
@@ -43,6 +43,6 @@ export default {
             rating: 4.9,
             numReviews: 100,
             countInStock: 4,
-        }
+        },
     ]
 }
